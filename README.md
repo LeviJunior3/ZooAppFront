@@ -19,7 +19,7 @@ Comunicação com API REST
 
 ## Instale as dependências 
 
-NPM VERSION: **10.9.2**
+Node VERSION: **v22.14.0**
 
 To start a local development server, run:
 
