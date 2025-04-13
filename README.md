@@ -41,7 +41,7 @@ ng serve
 
 ## Backend
 
-Certifique-se de que o backend ASP.NET Core (ZooApi) esteja rodando em paralelo na porta configurada, como https://localhost:7270 ou altere os arquivos Cuidado.service.ts e Animal.service.ts
+Certifique-se de que o backend ASP.NET Core (ZooApi) esteja rodando em paralelo na porta configurada, como **https://localhost:7270** ou **ALTERE** os arquivos **Cuidado.service.ts** e **Animal.service.ts**
 
 https://github.com/LeviJunior3/ZooApi.git
 
