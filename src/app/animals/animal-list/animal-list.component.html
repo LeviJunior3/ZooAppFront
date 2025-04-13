@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-title>Lista de Animais</mat-card-title>
+  <mat-table [dataSource]="animais">
+
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let animal">{{ animal.nome }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descricao">
+      <mat-header-cell *matHeaderCellDef>Descrição</mat-header-cell>
+      <mat-cell *matCellDef="let animal">{{ animal.descricao }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dataNascimento">
+      <mat-header-cell *matHeaderCellDef>Data de Nascimento</mat-header-cell>
+      <mat-cell *matCellDef="let animal">{{ animal.dataNascimento | date: 'dd/MM/yyyy' }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+      <mat-cell *matCellDef="let animal">
+        <button mat-icon-button color="primary" [routerLink]="['/animais/editar', animal.id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="delete(animal.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['nome', 'descricao', 'dataNascimento', 'acoes']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['nome', 'descricao', 'dataNascimento', 'acoes'];"></mat-row>
+  </mat-table>
+</mat-card>

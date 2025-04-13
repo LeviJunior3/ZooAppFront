@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="mat-elevation-z4">
+  <span class="logo">🐾 PetCare</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/animais']">
+      <mat-icon>pets</mat-icon>
+      <span>Animais</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/animais/novo']">
+      <mat-icon>add_circle_outline</mat-icon>
+      <span>Novo Animal</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/cuidados']">
+      <mat-icon>healing</mat-icon>
+      <span>Cuidados</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/cuidados/novo']">
+      <mat-icon>post_add</mat-icon>
+      <span>Novo Cuidados</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

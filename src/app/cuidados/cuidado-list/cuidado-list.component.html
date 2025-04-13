@@ -1,0 +1,26 @@
+<h2>Lista de Cuidados</h2>
+<table mat-table [dataSource]="cuidados" class="mat-elevation-z8" *ngIf="cuidados.length">
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef>Nome Cuidado</th>
+    <td mat-cell *matCellDef="let cuidado">{{ cuidado.nome }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="descricao">
+    <th mat-header-cell *matHeaderCellDef>Descrição</th>
+    <td mat-cell *matCellDef="let cuidado">{{ cuidado.descricao }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="acoes">
+    <th mat-header-cell *matHeaderCellDef>Ações</th>
+    <td mat-cell *matCellDef="let cuidado">
+      <button mat-button color="primary" [routerLink]="['/cuidados/editar', cuidado.id]">Editar</button>
+      <button mat-button color="warn" (click)="excluir(cuidado.id)">
+        Excluir
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['nome', 'descricao', 'acoes']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['nome', 'descricao', 'acoes'];"></tr>
+</table>
+<p *ngIf="cuidados.length === 0">Nenhum cuidado cadastrado.</p>

@@ -1,0 +1,70 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="animalForm" class="animal-form">
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" required />
+      <mat-error *ngIf="animalForm.get('nome')?.hasError('required')">Nome é obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="descricao" required></textarea>
+      <mat-error *ngIf="animalForm.get('descricao')?.hasError('required')">Descrição é obrigatória</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dataNascimento" placeholder="DD/MM/AAAA" required />
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="animalForm.get('dataNascimento')?.hasError('required')">Data de nascimento é
+        obrigatória
+      </mat-error>
+      <mat-error *ngIf="animalForm.get('dataNascimento')?.hasError('dataFutura')">
+        Data não pode ser no futuro
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Espécie</mat-label>
+      <input matInput formControlName="especie" required />
+      <mat-error *ngIf="animalForm.get('especie')?.hasError('required')">Espécie é obrigatória</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Habitat</mat-label>
+      <input matInput formControlName="habitat" required />
+      <mat-error *ngIf="animalForm.get('habitat')?.hasError('required')">Habitat é obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>País de Origem</mat-label>
+      <input matInput formControlName="paisDeOrigem" required />
+      <mat-error *ngIf="animalForm.get('paisDeOrigem')?.hasError('required')">País de origem é obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Cuidados</mat-label>
+      <mat-select formControlName="cuidadoIds" multiple>
+        <mat-option *ngFor="let cuidado of cuidados" [value]="cuidado.id">
+          {{ cuidado.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="animalForm.invalid">Salvar</button>
+  </div>
+</form>
