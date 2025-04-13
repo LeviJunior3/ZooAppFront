@@ -19,6 +19,8 @@ Comunicação com API REST
 
 ## Instale as dependências 
 
+NPM VERSION: **10.9.2**
+
 To start a local development server, run:
 
 ```bash
